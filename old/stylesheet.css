@@ -1,0 +1,138 @@
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Main */
+header {
+	background: gray;
+	height: 40px;
+	opacity: 0.6;
+	position: fixed;
+	width: 100%;
+}
+
+#logo {
+	font-size: 20px;
+	margin-left: 20px;
+	float: left;
+	color: blue;
+	text-decoration: none;
+	line-height: 38px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	float: right;
+	margin-right: 20px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	padding: 0 20px;
+	line-height: 38px;
+	text-decoration: none;
+	-moz-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+li a:hover {
+	color: blue;
+}
+
+#home {
+	background: url('http://www.thepaperwall.com/wallpapers/cartoon_comic/big/big_7159422ca15c2dd6c3c4a826e313bffcc43d5e07.jpg');
+	/* Set rules to fill background */
+	min-height: 100%;
+	min-width: 1024px;
+
+	/* Set up proportionate scaling */
+	width: 100%;
+	height: 500px;
+
+	/* Set up positioning */
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  #home {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.avatar {
+	margin: 15%;
+	display: block;
+	height: 150px;
+	width: 150px;
+	border: 5px solid black;
+	float: left;
+}
+
+#home article {
+	float: right;
+	font-size: 50px;
+	font-weight: bold;
+	color: white;
+	margin: 20% 15% 0 0;
+}
+
+#about {
+	background-color: white;
+	width: 100%;
+	height: 80px;
+}
