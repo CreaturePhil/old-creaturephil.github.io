@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>CreaturePhil</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+        <link rel="stylesheet" href="css/custom.css">
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -17,8 +19,36 @@
     </head>
     <body>
 
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <div id="header">
+            <a href="index.html" id="logo">CreaturePhil</a>
 
-        <script src="js/main.js"></script>
+            <nav>
+                <a href="#section0">Home</a>
+                <a href="#section1">About</a>
+                <a href="#section2">Projects</a>
+            </nav>
+        </div>
+        <div id="fullpage">
+            <div class="section" id="section0">
+                <img src="http://i.imgur.com/3QG864i.gif" id="avatar">
+                <h1 class="welcome">Hello, my name is <span>CreaturePhil</span>.</h1>
+            </div>
+            <div class="section" id="section1">
+                <h1>About</h1>
+            </div>
+            <div class="section" id="section2">
+                <h1>Projects</h1>
+            </div>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>    
+        <script type="text/javascript" src="js/vendors/jquery.slimscroll.min.js"></script>
+        <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#fullpage').fullpage();
+            });
+        </script>
     </body>
 </html>
