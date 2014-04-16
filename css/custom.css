@@ -102,3 +102,8 @@ article h1{
 article p {
 	width: 500px;
 }
+
+article img {
+	height: 40px;
+	width: 40px;
+}
