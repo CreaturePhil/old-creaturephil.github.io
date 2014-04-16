@@ -86,3 +86,19 @@ nav a {
 span {
 	color: orange;
 }
+
+article {
+	float: left;
+	color: black;
+	padding: 0 0 20% 10%;
+}
+
+article h1{
+	font-size: 40px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+article p {
+	width: 500px;
+}
