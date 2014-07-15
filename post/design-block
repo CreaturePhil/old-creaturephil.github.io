@@ -6,15 +6,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>CreaturePhil</title>
+        <title>Blog</title>
         <meta name="description" content="CreaturePhil is a magnificent bastard.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" href="favicon.ico">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -27,13 +27,13 @@
             </div>
             <nav>
               <ul>
-                <li class="active">
+                <li> 
                   <a href="/">Home</a>
                 </li>
                 <li>
                   <a href="/about">About</a>
                 </li>
-                <li>
+                <li class="active">
                   <a href="/blog">Blog</a>
                 </li>
                 <li>
@@ -44,10 +44,13 @@
           </div>
         </header>
 
-        <section class="content">
+        <section class="content white">
           <div class="container">
-            <h1>Hello World!</h1>
-            <h2>My name is CreaturePhil. I like to code and create things on the web.</h2>
+            <h1 class="article-title">Design Block</h1>
+            <span class="article-date">July 15, 2014</span>
+            <hr class="article-divider">
+            <p>So I finally decided upon a design for my personal website. It took way too long in my opinion. I spent the last 3 months tinkering around and trying to find a design that I was satified with. Throughout those months, I couldn't settled upon a satifying one until now. Experiencing that kind of design block is very frustrating.</p> 
+            <p>How I dealt with it in the last few days to finally settled with a good design is by viewing other people's website. Seeing how other people design their personal website is very interesting and can give you great inspiration. Hopefully, I don't have to deal with this long of a design block again.</p>
           </div>
         </section>
 
@@ -55,7 +58,7 @@
           <div class="container">
             <div class="clearfix">
               <div class="col-3">
-                <img src="img/creaturephil.png" width="70" height="70">
+                <img src="../img/creaturephil.png" width="70" height="70">
                 <p>Phil combines his almost one year experience in programming and thirst for knowledge to create awesome and beautiful web apps and programs.</p>
               </div>
 
@@ -99,3 +102,4 @@
         <script src="js/main.js"></script>
     </body>
 </html>
+
