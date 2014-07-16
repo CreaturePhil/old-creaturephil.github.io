@@ -210,7 +210,7 @@ header nav ul li {
   background-image: url("../img/headline.jpg"); 
   background-size: cover;
   color: #fff;
-  padding: 4rem;
+  padding: 12rem;
   text-shadow:1px 1px #111, 
               2px 2px #111, 
               3px 3px #111;
@@ -488,6 +488,9 @@ footer nav p {
    ========================================================================== */
 
 @media screen and (max-width: 670px) {
+  .headline {
+    padding: 6rem;
+  }
   .col-3 {
     float: none;
     width: 100%;
@@ -501,6 +504,9 @@ footer nav p {
   header[role="banner"] {
     text-align: center;
     height: 100%;
+  }
+  .headline {
+    padding: 4rem;
   }
   .logo {
     float: none; 
