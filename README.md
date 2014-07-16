@@ -1,3 +1,3 @@
 CreaturePhil's Website
 ======================
-This is just my personal website. Also can be called my portfolio site.
+This is just my personal/portfolio website.
