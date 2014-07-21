@@ -276,6 +276,18 @@ header nav ul li {
   width: 3rem;
 }
 
+.article-img {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.article-img img {
+  float: left;
+  width: 200px;
+  height: auto;
+  margin: 3px;
+}
+
 .project {
   display: block;
   height: 196px;
