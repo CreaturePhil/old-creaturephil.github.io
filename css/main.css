@@ -528,6 +528,13 @@ footer nav p {
     display: block;
     margin: 0 auto;
   }
+  .project {
+    height: auto;
+  }
+  .project img,
+  .article-img img {
+    float: none;
+  }
 }
 
 @media print,
