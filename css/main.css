@@ -288,6 +288,11 @@ header nav ul li {
   margin: 3px;
 }
 
+.limit {
+  width: 640px;
+  margin: 0 auto;
+}
+
 .project {
   display: block;
   height: 196px;
@@ -322,6 +327,10 @@ header nav ul li {
 .project small {
   font-style: italic; 
   font-weight: 100;
+}
+
+iframe {
+  width: 640px;
 }
 
 /*  #Footer
@@ -510,6 +519,12 @@ footer nav p {
   footer ul {
     padding-top: 20px;
   }
+  iframe {
+    width: 350px;
+  }
+  .limit {
+    width: 350px;
+  }
 }
 
 @media screen and (max-width: 575px) {
@@ -529,11 +544,17 @@ footer nav p {
     margin: 0 auto;
   }
   .project {
-    height: auto;
+   height: auto;
   }
   .project img,
   .article-img img {
     float: none;
+  }
+  iframe {
+    width: 250px;
+  }
+  .limit {
+    width: 250px;
   }
 }
 
