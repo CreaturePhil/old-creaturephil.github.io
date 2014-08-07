@@ -238,10 +238,15 @@ header nav ul li {
 }
 
 .posts li {
-  border-bottom: 1px solid #eee;
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
   color: #aaa;
+}
+
+.posts li p {
+  color: #111;
+  border: 1px solid #eee;
+  margin-top: 1.5em;
 }
 
 .posts h3 {
