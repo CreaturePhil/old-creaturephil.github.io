@@ -316,7 +316,7 @@ header nav ul li {
 
 .project img {
   float: left;
-  width: 256px;
+  width: 300px;
   height: auto;
   padding: 1px;
   border: 1px solid #aaa;
@@ -554,6 +554,9 @@ footer nav p {
   .project img,
   .article-img img {
     float: none;
+  }
+  .project img {
+    width: 256px;
   }
   iframe {
     width: 250px;
