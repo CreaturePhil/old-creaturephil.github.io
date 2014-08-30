@@ -206,6 +206,19 @@ header nav ul li {
   padding: 20px;
 }
 
+pre {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  text-align: left;
+	display: inline-block;
+	background: rgb(230,230,230);
+  width: 640px;
+	border-radius: 10px;
+}
+
 .headline {
   background-image: url("../img/headline.jpg"); 
   background-size: cover;
@@ -292,6 +305,11 @@ header nav ul li {
   height: auto;
   margin: 3px;
 }
+
+.post-image {
+  max-width: 640px;
+}
+
 
 .limit {
   width: 640px;
@@ -524,11 +542,13 @@ footer nav p {
   footer ul {
     padding-top: 20px;
   }
+  .limit,
+  pre,
   iframe {
     width: 350px;
   }
-  .limit {
-    width: 350px;
+  .post-image {
+    max-width: 350px;
   }
 }
 
@@ -558,11 +578,13 @@ footer nav p {
   .project img {
     width: 256px;
   }
+  .limit,
+  pre,
   iframe {
     width: 250px;
   }
-  .limit {
-    width: 250px;
+  .post-image {
+    max-width: 250px;
   }
 }
 

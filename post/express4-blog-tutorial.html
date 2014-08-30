@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-us"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Express 4 Blog Tutorial</title>
+        <meta name="description" content="CreaturePhil is a magnificent bastard.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header role="banner">
+          <div class="container">
+            <a href="/" class="logo"><i class="fa fa-paper-plane fa-fw"></i>CreaturePhil</a> 
+            <nav>
+              <ul>
+                <li> 
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/about">About</a>
+                </li>
+                <li class="active">
+                  <a href="/blog">Blog</a>
+                </li>
+                <li>
+                  <a href="/projects">Projects</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <section class="content white">
+          <div class="container">
+            <h1 class="article-title">Express 4 Blog Tutorial</h1>
+            <span class="article-date">August 29, 2014</span>
+            <hr class="article-divider">
+            <p>In this tutorial, I will show you how to make a blog in Express 4. Lets get right to it! So first of all, what is Express? Express is a minimal and flexible node.js web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications. Express is a excellent framework because it lets you build web applications more quickly without most of the setup hassle. Here is what the final product you will be building would look like:</p>
+            <img src="http://i.imgur.com/P8qheU3.png" alt="final product" class="post-image">
+            <p>I'm not going to be styling this blog since you can really do that on your own with css or any css preprocessors like <a href="http://lesscss.org/" target="_blank">less</a>, <a href="http://sass-lang.com/" target="_blank">sass</a>, or <a href="http://learnboost.github.io/stylus/" target="_blank">stylus</a>. This tutorial is mainly to help you go beyond the Express hello world app to a web application hook to a database.</p>
+            <p>If you haven't install node.js yet, click <a href="http://nodejs.org/" target="_blank">here</a> to install node.js. Once you node.js install, I will be using an express generator to create a scaffold boilerplate of our Express blog. Type this in your terminal or command prompt to install the express generator:</p>
+<pre>
+  <code>
+  $ npm install express-generator -g
+  </code>
+</pre>
+            <p>The options -g is to install globally.</p>
+            <p>Now you are able to use the command express to create your application scaffold. The express command is like this:</p>
+<pre>
+  <code>
+  $ express &lt;project name&gt;
+  </code>
+</pre>
+            <p>Where &lt;project name&gt; is the name of your folder for you project. I will name my express-blog, you can call your project whatever you want. You should see something like this after typing in the command:</p>
+<pre>
+  <code>
+  $ express express-blog
+
+   create : express-blog
+   create : express-blog/package.json
+   create : express-blog/app.js
+   create : express-blog/public
+   create : express-blog/public/javascripts
+   create : express-blog/public/images
+   create : express-blog/public/stylesheets
+   create : express-blog/public/stylesheets/style.css
+   create : express-blog/routes
+   create : express-blog/routes/index.js
+   create : express-blog/routes/users.js
+   create : express-blog/views
+   create : express-blog/views/index.jade
+   create : express-blog/views/layout.jade
+   create : express-blog/views/error.jade
+   create : express-blog/bin
+   create : express-blog/bin/www
+
+   install dependencies:
+     $ cd express-blog && npm install
+
+   run the app:
+     $ DEBUG=express-blog ./bin/www
+  </code>
+</pre>
+            <p>Change directory to your project folder and install dependencies for it with <strong>cd express-blog && npm install</strong>. Once that is done installing dependencies which are mostly middleware(provides services to applications beyond those available from the current software), let's test out our server with <strong>npm start</strong>. It should work and you should be seeing a welcome to express page. Next, lets take a look at the app.js file:</p>
+            <img src="http://i.imgur.com/aMYhrx1.png" alt="app.js" class="post-image">
+            <p>Then open up routes/index.js. The / route renders a <a href="http://jade-lang.com" target="_blank">jade</a> template that converts to html and is displays to us when we go to that page. The server is running by the bin/www file. So we are going to edit the jade template. If you are not comfortable with jade then spend a 5-10 minutes going through the jade documentation to get the hang of it. If you don't know what to practice on with the documentation then practice on making a blog site in jade.</p>
+            <p>I will be adding on to the views/index.jade file. I added a horizontal rule and a heading 3. I also added in a form which makes a post request to the server to store our blog post data that we inputted. I put a title and text inputs because that is what most blog posts are.</p>
+<pre>
+  <code>
+  extends layout
+
+  block content
+    h1= title
+    p Welcome to #{title}
+    hr
+    h3 Add a Post
+    form(action="/" method="post")
+      p Title
+      input(type="text" name="title")
+      p Text
+      textarea(name="text")
+      input(type="submit" value="Submit") 
+  </code>
+</pre>
+            <p>Then go to routes/index.js and change the title of the / route on ling 6. It should look like this:</p>
+<pre>
+  <code>
+  router.get('/', function(req, res) {
+    res.render('index', { title: 'my Blog'});
+  });
+  </code>
+</pre>
+            <p>Next go to views/layout.jade and delete line 5 where the link stylesheet is located. End the server with crtl-c and restart it back up with <strong>npm start</strong> to take a look at what that looks like.</p>
+            <p>Now end the server again with crtl-c and type this:</p>
+<pre>
+  <code>
+  $ npm install mongoose --save
+  </code>
+</pre>
+            <p>The save options adds it to your package.json file. We are installing Mongoose which is a object document mapper for mongodb. Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box. If you don't know what all this means let me try to explain it from the beginning.</p>  
+            <p>Sql is a programming language designed for managing data held in a relational database management system. A relational database is basically multiple tables that hold infomation connected in some way to each other. Here, we are using mongodb which is a NoSql database. A NoSql database means that it doesn't use tables. Instead, it uses key/value pairs like  aJavaScript object or JSON. In mongodb instead of calling it a table, it is call a document. Moongoose is a higher level so we don't have to do the lower level work in mongodb and mongoose uses the mongodb driver to connect to node.js so we can use it. This means that we can build and manage a database much faster and more easily.</p>
+            <p>The first thing we are going to type in our app.js file is adding the mongoose dependency and hooking it up to a mongodb server. On line 7 of the app.js file, add this:</p>
+<pre>
+  <code>
+  var mongoose = require('mongoose');
+  </code>
+</pre>
+            <p>Now to hook it up to a mongodb server, we are going to need one. I will be using a cloud mongodb server called <a href="https://mongolab.com/" target="_blank">mongolab</a>. You can use that or a local one if you already got mongodb installed on your computer. You can sign up for free account on mongolab with a half a gig of free storage!</p>
+            <p>When you done signing up, go to <a href="http://mongolab.com/home" target="_blank">mongolab.com/home</a> if you aren't there already. Then click on the create new button.</p>
+            <img src="http://i.imgur.com/ktnesA4.png" alt="mongolab home" class="post-image">
+            <p>Then, click on the single-node(development) tab below the cloud provider and plan headings. Select sandbox and type a name for your database.</p>
+            <img src="http://i.imgur.com/N7QoKQJ.png" alt="mongolab database creation" class="post-image">
+            <p>Then click on the Users tab and on the right hand side to add a database user. After that, Llook up above and copy the standard uri.</p>
+            <img src="http://i.imgur.com/coKvPl4.png" alt="mongolab uri" class="post-image">
+            <p>Go back to app.js file and on line 24 add what you just copy but replace &lt;user&gt; and the &lt;pass&gt; with the database user's username and password you made. It should look something like this:</p>
+<pre>
+  <code>
+  mongoose.connect('INSERT YOUR DATABASE URI HERE');
+  </code>
+</pre>
+            <p>Since we are now connected to a mongodb database, we are going to make the database models. This is because the database models are going to help organize the blog posts that is going to be store in our database. Make a models folder and make a post.js file in it.</p>
+<pre>
+  <code>
+  $ mkdir models
+  $ touch models/post.js
+  </code>
+</pre>
+            <p>In the models/post.js file, we require mongoose. Then I created a post schema that contains title, text, author, and date fields. Then I created the model for it and export it out.</p>
+<pre>
+  <code>
+  var mongoose = require('mongoose');
+
+  var postSchema = mongoose.Schema({
+    title: { type: String, required: true },
+    text: { type: String, required: true },
+    date: { type: Date, required: true }
+  });
+
+  var post = mongoose.model('post', postSchema);
+
+  module.exports = post;
+  </code>
+</pre>
+            <p>Next we are going to interact with that model in our routes/index.js file. On line 3 of routes/index.js, add a require to get access to our model:</p>
+<pre>
+  <code>
+  var Post = require('../models/post');
+  </code>
+</pre>
+            <p>Next add a router.post around line 9 to respond to our form post request when it is sent.</p>
+<pre>
+  <code>
+  router.post('/', function(req, res) {
+    // interact with the model here
+  });
+  </code>
+</pre>
+            <p>Inside the router.post, we add a new Post model to it but first we are going to check if the blog post title or text is empty or not. We use req.body because of the body-parser middleware and that allows us to get form requests more easily. If the user leaves either the title or text blank then we do nothing and just redirect them to the index page again.</p>
+<pre>
+  <code>
+  router.post('/', function(req, res) {
+    if (!req.body.title || !req.body.text) {
+      return res.redirect('/');
+    }
+  });
+  </code>
+</pre>
+            <p>If it is not empty, we add a new Post with a title, text, and date field and save that to the database. When it is finish saving we redirect the user back to the index page.</p>
+<pre>
+  <code>
+  router.post('/', function(req, res) {
+    if (!req.body.title || !req.body.text) {
+      return res.redirect('/');
+    }
+    var post = new Post({
+      title: req.body.title,
+      text: req.body.text,
+      date: (new Date())
+    });
+    post.save(function(err) {
+      res.redirect('/'); 
+    });
+  });
+  </code>
+</pre>
+            <p>Now on the index page(/ route) we are going to show the posts. Within the callback of router.get('/'), we are going to search for all Post and then render it to jade template.</p>
+<pre>
+  <code>
+  router.get('/', function(req, res) {
+    Post.find(function(err, posts) {
+      res.render('index', { 
+        title: 'my Blog!', 
+        posts: posts
+      });
+    });
+  });
+  </code>
+</pre>
+            <p>Now in the index.jade template, we are going to loop through all the posts and show them. Add this at the bottom of index.jade.</p>
+<pre>
+  <code>
+  hr
+  each post in posts
+  h4= post.title
+  span= post.date
+  p= post.text
+  </code>
+</pre>
+            <p>Load up the server with <strong>npm start</strong> and start entering your blog posts! We are now done with the app and we are going to deploy it now! I'm going to be deplyong it on heroku. If you haven't already, signup and install <a href="http://www.heroku.com/" target="_blank">heroku</a>. Follow these three easy steps to deploy it after you install heroku and log in to it with heroku login.</p>
+            <p>First, create a Procfile. Make sure it is a captial P and put this in it:</p>
+<pre>
+  <code>
+  web: node bin/www
+  </code>
+</pre>
+            <p>Secondly, create a .gitignore file and type this in the file to ignore node_modules for deployment:</p>
+<pre>
+  <code>
+  node_modules
+  </code>
+</pre>
+            <p>Finally type in these commands to create a git repository for heroku deployment:</p>
+<pre>
+  <code>
+  $ git init
+  $ git add .
+  $ git commit -m "initial commit"
+  $ heroku create
+  $ git push heroku master
+  $ heroku open
+  </code>
+</pre>
+            <p>Now you should see your app at &lt;app name&gt;.herokuapp.com. Congratulations, you finish making an Express 4 Blog web application! You can visit my version of the finish express blog <a href="http://express4-blog.herokuapp.com/" target="_blank">here</a> on heroku or click <a href="https://github.com/CreaturePhil/express-blog" target="_blank">here</a> to see the tutorial code on github.</p>
+            <h3>Going Further</h3>
+            <p>For more infomation on Sql and NoSql click these links:</p>
+            <a href="https://www.digitalocean.com/community/tutorials/understanding-sql-and-nosql-databases-and-different-database-models" target="_blank">Understanding Sql and NoSql databases and different database models</a><br><br>
+            <a href="https://www.digitalocean.com/community/tutorials/a-comparison-of-nosql-database-management-systems-and-models" target="_blank">A comparasion of NoSql database management systems and models</a><br><br>
+            <a href="https://www.digitalocean.com/community/articles/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems" target="_blank">Sqlite vs MySql vs Postgresql - A comparasion of relational database management systems</a><br><br>
+            <p>For a review of what you just learn in this tutorial:</p>
+            <a href="https://www.youtube.com/watch?v=FqMIyTH9wSg" target="_blank">Node.js tutorial for beginners 2014 - an introduction to Node.js with Express.js</a><br><br>
+            <a href="https://www.youtube.com/watch?v=5e1NEdfs4is" target="_blank">Node.js MongoDB Tutorial using Mongoose</a><br><br>
+            <p>If you have any questions, feel free to leave it in the comment section below. If you would like a tutorial on creating a Express authtentication system also tell me the comment section below.</p>
+            <hr class="limit">
+            <div id="disqus_thread" class="limit"></div>
+           <script type="text/javascript">
+              var disqus_shortname = 'creaturephil';
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+               })();
+           </script>
+          </div>
+        </section>
+
+        <footer>
+          <div class="container">
+            <div class="clearfix">
+              <div class="col-3">
+                <img src="../img/creaturephil.png" width="70" height="70" alt="Philip La">
+                <p>Phil combines his almost one year experience in programming and thirst for knowledge to create awesome and beautiful web apps and programs.</p>
+              </div>
+
+              <div class="col-3">
+                <ul>
+                  <li>
+                    <a href="https://twitter.com/creaturephil" target="_blank" class="fa fa-twitter"></a>
+                    <p>Follow <a href="https://twitter.com/creaturephil" target="_blank">@CreaturePhil</a> for no apparent reason.</p>
+                  </li>
+                  <li>
+                    <a href="https://github.com/creaturephil" target="_blank" class="fa fa-github"></a>
+                    <p>View <a href="https://github.com/creaturephil" target="_blank">@CreaturePhil</a> on GitHub for open source projects.</p>
+                  </li>
+                  <li>
+                    <a href="mailto:birkal@outlook.com" target="_blank" class="fa fa-envelope-square"></a>
+                    <p>Send mail at <a href="mailto:birkal@outlook" target="_blank">birkal@outlook.com</a> to contact me.</p>
+                  </li>
+              </ul>
+            </div>
+
+            <div class="col-3 last">
+              <nav>
+                <a href="/">Home</a>
+                <p>Check out my home page.</p>
+                <a href="/about">About</a>
+                <p>Learn more about me.</p>
+                <a href="/blog">Blog</a>
+                <p>Read about stuff I like such as programming and web-related articles.</p>
+                <a href="/projects">Projects</a>
+                <p>View all my projects.</p>
+              </nav>
+            </div>
+          </div> 
+            <small>&copy; 2014 CreaturePhil</small>
+          </div>
+        </footer>
+
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-52995522-1');ga('send','pageview');
+        </script>
+    </body>
+</html>
