@@ -3,8 +3,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     jade: {
-      files: {
-        'index.html': 'src/index.jade'
+      compile: {
+        files: {
+          'index.html': 'src/index.jade'
+        }
       }
     },
 

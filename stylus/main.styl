@@ -1,0 +1,40 @@
+@import "normalize"
+
+*, *:before, *:after
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+.container 
+  margin: 0 auto
+  max-width: 48rem
+  width: 90%
+
+@media (min-width: 40rem)
+  .column
+    float: left
+    padding-left: 1rem
+    padding-right: 1rem
+
+      &.full  
+        width: 100%
+      &.two-thirds 
+        width: 66.7%
+      &.half
+        width: 50%
+      &.third
+        width: 33.3%
+      &.fourth
+        width: 25%
+      &.flow-opposite
+        float: right
+ 
+.clearfix
+  *zoom: 1
+
+  &:after
+    clear: both
+
+  &:after, &:before
+    content: ""
+    display: table
