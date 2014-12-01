@@ -23,4 +23,21 @@ html(lang="en-us")
     .container
       block content
 
-    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script.
+      var colors = [ '#001F3F' // Navy
+                   , '#0074D9' // Blue
+                   , '#7FDBFF' // Teal
+                   , '#39CCCC' // Olive
+                   , '#3D9970' // Green
+                   , '#01FF70' // Lime
+                   , '#FFDC00' // Yellow
+                   , '#FF851B' // Orange
+                   , '#FF4136' // Red
+                   , '#85144B' // Maroon
+                   , '#F012BE' // Fuchsia
+                   , '#B10DC9' // Purple
+                   , '#111111' // Black
+                   , '#AAAAAA' // Gray
+                   , '#DDDDDD' ]; // Silver
+      var rng = Math.floor(Math.random() * colors.length);
+      document.querySelectorAll('body')[0].style['border-top'] = '3px solid ' + colors[rng];
