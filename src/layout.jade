@@ -22,20 +22,6 @@ html(lang="en-us")
       block content
 
     script.
-      var colors = [ '#001F3F' // Navy
-                   , '#0074D9' // Blue
-                   , '#7FDBFF' // Teal
-                   , '#39CCCC' // Olive
-                   , '#3D9970' // Green
-                   , '#01FF70' // Lime
-                   , '#FFDC00' // Yellow
-                   , '#FF851B' // Orange
-                   , '#FF4136' // Red
-                   , '#85144B' // Maroon
-                   , '#F012BE' // Fuchsia
-                   , '#B10DC9' // Purple
-                   , '#111111' // Black
-                   , '#AAAAAA' // Gray
-                   , '#DDDDDD' ]; // Silver
+      var colors = ['#001F3F', '#0074D9', '#7FDBFF', '#39CCCC', '#3D9970', '#01FF70', '#FFDC00', '#FF851B', '#FF413', '#85144B', '#F012BE', '#B10DC9' , '#111111', '#AAAAAA', '#DDDDDD'];
       var rng = Math.floor(Math.random() * colors.length);
       document.querySelectorAll('body')[0].style['border-top'] = '3px solid ' + colors[rng];
