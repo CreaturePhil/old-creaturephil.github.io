@@ -1,0 +1,72 @@
+extends layout
+
+block content
+  .hero-unit
+    h1: a(href="/") CreaturePhil
+
+  section
+    h2 About me
+    p.
+      Hello, my name is Philip La and I often go by the username CreaturePhil. I like to create websites and web applications.
+
+  section.contact
+    a(href="https://github.com/CreaturePhil")
+      i.fa.fa-github
+    a(href="https://twitter.com/CreaturePhil")
+      i.fa.fa-twitter
+    a(href="mailto:birkal@outlook.com")
+      i.fa.fa-envelope
+
+  section
+    h2 Projects
+
+    a.project(href="https://usub.herokuapp.com/" target="_blank")
+      img(src="img/usub.png" alt="Usub")
+      h3 Usub #[small https://usub.herokuapp.com/]
+      p Displays YouTube subscriptions in a grid. Built with Full Stack JavaScript (Node.js, Express, and MongoDB).
+
+    a.project(href="http://coffeeshopapp.herokuapp.com/" target="_blank")
+      img(src="img/coffeeshop.png" alt="Coffee Shop")
+      h3 Coffee Shop #[small http://coffeeshopapp.herokuapp.com/]
+      p Social media network that specializes in music. It's last.fm but not horribly over-complicated. Built with Full Stack JavaScript (Node.js, Express, and MongoDB).
+
+    a.project(href="http://jack-rabbit.herokuapp.com/" target="_blank")
+      img(src="img/jackrabbit.png" alt="JackRabbit")
+      h3 JackRabbit #[small http://jack-rabbit.herokuapp.com/]
+      p Posting platform for public blogging and private journals. Built with Full Stack JavaScript (Node.js, Express, and MongoDB).
+
+    a.project(href="https://www.npmjs.com/package/gclone/" target="_blank")
+      img(src="img/gclone.png" alt="gclone")
+      h3 gclone #[small https://www.npmjs.com/package/gclone/]
+      p NPM Package which is a better git clone. Type less, clone more. Built with Node.js (JavaScript).
+
+    a.project(href="http://effusive.herokuapp.com/" target="_blank")
+      img(src="img/effusive.png" alt="Effusive")
+      h3 Effusive #[small http://effusive.herokuapp.com/]
+      p An open source social media platform. Built with Full Stack JavaScript (Node.js, Express, and MongoDB).
+
+    a.project(href="https://www.npmjs.com/package/markus/" target="_blank")
+      img(src="img/markus.png" alt="Markus")
+      h3 Markus #[small https://www.npmjs.com/package/markus/]
+      p NPM Package that is an Express' opinionated application generator and boilerplate for Node.js web applications. Built with Node.js (JavaScript).
+
+    a.project(href="http://todothree.herokuapp.com/" target="_blank")
+      img(src="img/todothree.png" alt="Todothree")
+      h3 What three things do you need to do today? #[small http://todothree.herokuapp.com/]
+      p Inspired by Coding Horror's blog post on todo lists. This todo list limits you to 3 todos so you don't use it as much of a crutch and actually help you get stuff done. Built with AngularJS (JavaScript).
+
+    a.project(href="http://koshyphysics.github.io/" target="_blank")
+      img(src="img/koshyphysics.png" alt="Koshy Physics")
+      h3 Koshy Physics #[small http://koshyphysics.github.io/]
+      p Physics Simulations using JavaScript physics engines. Built with JavaScript.
+      
+    a.project(href="http://creaturephil.github.io/thomasly/" target="_blank")
+      img(src="img/thomasly.png" alt="Thomas Ly Project")
+      h3 Thomas Ly #[small http://creaturephil.github.io/thomasly/]
+      p A responsive website for a friend about a friend. Built with HTML/CSS.
+
+  .footer
+    small
+      | &copy;  
+      script document.write(new Date().getFullYear());
+      | &nbsp;Philip La
