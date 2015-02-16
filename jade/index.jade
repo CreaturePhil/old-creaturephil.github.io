@@ -1,5 +1,11 @@
 extends layout
 
+block front
+  +front(
+    'CreaturePhil', 
+    'Writings and projects by Philip La. Philip La often goes by the username CreaturePhil and likes creating software.'
+  )
+
 block content
   .hero-unit
     h1: a(href="/") CreaturePhil
@@ -65,8 +71,3 @@ block content
       h3 Thomas Ly #[small http://creaturephil.github.io/thomasly/]
       p A responsive website for a friend about a friend. Built with HTML/CSS.
 
-  .footer
-    small
-      | &copy;  
-      script document.write(new Date().getFullYear());
-      | &nbsp;Philip La

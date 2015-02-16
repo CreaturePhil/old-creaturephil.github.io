@@ -1,0 +1,18 @@
+extends ../layout
+
+block front
+  +front(
+    'I\'m back',
+    'My blog is back up and running!'
+  )
+
+block content
+  .post
+    :markdown
+      # I'm back
+      ### some date here
+      
+      My blog is back up and running. I've been lazy to add it back because of my new website layout.
+      Now I have to add back all my old posts to the blog.
+
+      I just spend a few hours adding back my old posts. Also, I refactor them for better readability. favorite ones are...

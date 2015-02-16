@@ -98,6 +98,11 @@ small
     &:hover
       color: #666
 
+    @media screen and (max-width: 497px)
+      font-size: 2em
+
+    @media screen and (max-width: 340px)
+      font-size: 1em
 
 .project
   display: block
@@ -115,6 +120,9 @@ small
     padding: 1px
     margin-right: 5px
     border: 1px solid #aaa
+
+    @media screen and (max-width: 340px)
+      width: 230px
 
   h3
     margin: 0
@@ -138,3 +146,18 @@ small
 
     p
       margin: 0.5em 0 0 0
+
+.post
+  h3
+    margin: -1rem 0 2rem .1rem
+    font-family: "Lato", sans-serif
+    font-weight: 100
+    color: #ccc
+
+  p
+    font-family: "PT Serif", Georgia, "Times New Roman", serif
+
+  img
+    display: block
+    max-width: 100%
+    height: auto

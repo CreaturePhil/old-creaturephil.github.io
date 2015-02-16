@@ -5,7 +5,9 @@ module.exports = function(grunt) {
     jade: {
       compile: {
         files: {
-          'index.html': 'jade/index.jade'
+          'index.html': 'jade/index.jade',
+          'posts/people-you-should-follow.html': 'jade/posts/people-you-should-follow.jade',
+          'posts/im-back.html': 'jade/posts/im-back.jade'
         }
       }
     },
@@ -20,7 +22,7 @@ module.exports = function(grunt) {
 
     watch: {
       jade: {
-        files: 'jade/*.jade',
+        files: 'jade/**/*.jade',
         tasks: ['jade']
       },
       stylus: {
