@@ -1,0 +1,25 @@
+extends layout
+
+block front
+  +front(
+    'Blog', 
+    'Writings by Philip La.'
+  )
+
+block content
+  section.clearfix
+    h1: a(href="/blog") Blog
+    ul.listings
+
+      h2 2015
+      li
+        span February 16, 2015
+        a(href="/posts/im-back") I'm back
+
+      h2 2014
+      li
+        span August 29, 2014
+        a(href="/posts/express-4-blog-tutorial") Express 4 Blog Tutorial
+      li
+        span July 20, 2014
+        a(href="/posts/people-you-should-follow") People you should follow

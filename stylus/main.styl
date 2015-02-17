@@ -55,14 +55,24 @@ h1
   font-weight: 700
   font-size: 40px
   padding-top: 1em
+
   @media screen and (max-width: 497px)
     font-size: 32px
 
 h2
   font-family: "Lato", sans-serif
   font-size: 30px
+
   @media screen and (max-width: 497px)
     font-size: 26px
+
+h1, h2
+  a
+    color: #111
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
 
 p
   font-family: "Lato", sans-serif
@@ -103,6 +113,26 @@ small
 
     @media screen and (max-width: 340px)
       font-size: 1em
+
+.listings
+  margin: 0
+  padding: 0
+  list-style: none
+
+  li
+    padding: 1em 0 1em 0
+
+    a
+      color: #111
+      text-decoration: none
+      border-bottom: 1px solid #ddd
+
+      &:hover
+        border-bottom: 1px solid #111
+
+    span
+      float: right
+      color: #ccc
 
 .project
   display: block

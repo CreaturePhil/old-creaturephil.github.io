@@ -6,7 +6,9 @@ module.exports = function(grunt) {
       compile: {
         files: {
           'index.html': 'jade/index.jade',
+          'blog.html': 'jade/blog.jade',
           'posts/people-you-should-follow.html': 'jade/posts/people-you-should-follow.jade',
+          'posts/express-4-blog-tutorial.html': 'jade/posts/express-4-blog-tutorial.jade',
           'posts/im-back.html': 'jade/posts/im-back.jade'
         }
       }
