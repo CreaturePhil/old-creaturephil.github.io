@@ -1,16 +1,25 @@
+var fs = require('fs');
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
 
     jade: {
       compile: {
-        files: {
-          'index.html': 'jade/index.jade',
-          'blog.html': 'jade/blog.jade',
-          'posts/people-you-should-follow.html': 'jade/posts/people-you-should-follow.jade',
-          'posts/express-4-blog-tutorial.html': 'jade/posts/express-4-blog-tutorial.jade',
-          'posts/im-back.html': 'jade/posts/im-back.jade'
-        }
+        files: (function() {
+          var files = {
+            'index.html': 'jade/index.jade',
+            'blog.html': 'jade/blog.jade'
+          };
+
+          var dir = fs.readdirSync('jade/posts');
+
+          dir.forEach(function(file) {
+            files['posts/' + file.slice(0, -5) + '.html'] = 'jade/posts/' + file;
+          });
+
+          return files;
+        })()
       }
     },
 
